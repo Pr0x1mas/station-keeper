@@ -1,4 +1,4 @@
-discord.ext
+discord
 dnspython
 PyNaCl
 async-timeout

@@ -10,5 +10,5 @@ Syntax: `findCarrier <station>`
 
 ***Want more commands?***
 
-Suggest one [here](https://github.com/Pr0x1mas/station-keeper/issues/new)
+Suggest one [here](https://github.com/Pr0x1mas/station-keeper/issues/new?assignees=&labels=&template=feature_request.md&title=)
 

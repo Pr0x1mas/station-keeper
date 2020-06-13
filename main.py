@@ -2,8 +2,11 @@ import json
 from urllib.request import Request, urlopen
 from discord.ext import commands
 import os
-from dotenv import load_dotenv
-load_dotenv(dotenv_path = os.path.join(os.path.dirname(__file__), '.env'))
+try:
+    from dotenv import load_dotenv
+    load_dotenv(dotenv_path = os.path.join(os.path.dirname(__file__), '.env'))
+except Exception:
+    print("Unable to load dotenv, reverting to system environment variable")
 TOKEN = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix='?')

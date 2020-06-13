@@ -1,6 +1,10 @@
 import json
 from urllib.request import Request, urlopen
 from discord.ext import commands
+import os
+from dotenv import load_dotenv
+load_dotenv(dotenv_path = os.path.join(os.path.dirname(__file__), '.env'))
+TOKEN = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix='?')
 
@@ -39,4 +43,4 @@ async def findCarrier(ctx, station):
         await ctx.send("Carrier/station " + carriername + " could not be found")
 
 if __name__ == "__main__":
-    bot.run('NzIxMDU0Mzg1ODgyMzk4ODEz.XuPbMA.uHYRyqZU5a7Vv715PA58YuFd0DE')
+    bot.run(TOKEN)

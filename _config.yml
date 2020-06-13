@@ -3,6 +3,6 @@ theme: jekyll-theme-minimal
 logo: stationkeeperlogo2.png
 
 title: StationKeeper
-description: A companion Discord bot for Elite: Dangerous by Pr0x1mas that uses the EDDB API.
+description: A companion Discord bot for Elite Dangerous by Pr0x1mas that uses the EDDB API.
 
 show_downloads: false

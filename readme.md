@@ -1,6 +1,6 @@
 # StationKeeper
 
-<img src="assets/stationkeeperlogo2.png" alt="logo" style="width: 10em; float: left;" />
+<img src="assets/stationkeeperlogo2.png" alt="logo" style="width: 10em; float: left; clear: both;" />
 
 A companion Discord bot for Elite Dangerous by Pr0x1mas that uses the EDDB API.
 

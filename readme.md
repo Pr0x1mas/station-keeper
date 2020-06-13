@@ -1,6 +1,3 @@
-# StationKeeper
-A companion Discord bot for Elite: Dangerous by Pr0x1mas that uses the [EDDB API](https://elitebgs.app/api/eddb).
-
 # Commands
 
 ## findCarrier
@@ -8,7 +5,6 @@ Finds a station or fleet carrier. With fleet carriers, you must use its identifi
 
 Syntax: `findCarrier <station>`
 
-***Want more commands?***
+### Want more commands?
 
 Suggest one [here](https://github.com/Pr0x1mas/station-keeper/issues/new?assignees=&labels=&template=feature_request.md&title=)
-

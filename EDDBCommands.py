@@ -31,7 +31,7 @@ class EDDBCommands(commands.Cog):
                 await ctx.send(":satellite_orbital: Carrier/station " + carriername + " is at system " + systemname) # send message showing whereabouts of station
 
             except Exception:
-                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " could not be found") # if there are any errors, show this message
+                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'") # if there are any errors, show this message
 
 def setup(bot):
     bot.add_cog(EDDBCommands(bot))

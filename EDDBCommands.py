@@ -28,10 +28,10 @@ class EDDBCommands(commands.Cog):
                 system = json.loads(raw_system) # parse system data as json and get system name
                 systemname = system.get("docs")[0].get("name")
 
-                await ctx.send("Carrier/station " + carriername + " is at system " + systemname) # send message showing whereabouts of station
+                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " is at system " + systemname) # send message showing whereabouts of station
 
             except Exception:
-                await ctx.send("Carrier/station " + carriername + " could not be found") # if there are any errors, show this message
+                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " could not be found") # if there are any errors, show this message
 
 def setup(bot):
     bot.add_cog(EDDBCommands(bot))

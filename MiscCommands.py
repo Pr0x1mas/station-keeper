@@ -2,8 +2,8 @@ import json
 from urllib.request import Request, urlopen
 from discord.ext import commands
 
-class EDDBCommands(commands.Cog):
-    '''Commands that use the EDDB API'''
+class MiscCommands(commands.Cog):
+    '''Miscellaneous Commands'''
 
     def __init__(self, bot):
         self.bot = bot
@@ -34,4 +34,4 @@ class EDDBCommands(commands.Cog):
                 await ctx.send(":satellite_orbital: Carrier/station " + carriername + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'") # if there are any errors, show this message
 
 def setup(bot):
-    bot.add_cog(EDDBCommands(bot))
+    bot.add_cog(MiscCommands(bot))

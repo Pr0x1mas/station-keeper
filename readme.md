@@ -1,6 +1,6 @@
 
 
-<img src="assets/assets/stationkeeperlogo2.png" alt="logo" style="width: 10em; text-align: left; clear: both;" />
+<img src="/assets/stationkeeperlogo2.png" alt="logo" style="width: 10em; text-align: left; clear: both;" />
 
 <br>
 

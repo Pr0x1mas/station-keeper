@@ -1,6 +1,7 @@
 import json
 from urllib.request import Request, urlopen
 from discord.ext import commands
+import keyFinder
 
 class MiscCommands(commands.Cog):
     '''Miscellaneous Commands'''
@@ -12,26 +13,13 @@ class MiscCommands(commands.Cog):
     async def findCarrier(self, ctx, station):
         async with ctx.typing():
             try:
-                carriername = station.replace(" ", "%20") # convert spaces to %20 for url
+                system_id = keyFinder.findKey("station", station, "system_id", "name") # get ID of system station is in
+                system_name = keyFinder.findKey("system", str(system_id), "name", "eddbid") # use ID to get system name
 
-                url = 'https://eddbapi.kodeblox.com/api/v4/stations?name=' + carriername # get data for station
-                req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                raw_station = urlopen(req).read()
-
-                station = json.loads(raw_station) # parse station data as json and get system id
-                systemid = station.get("docs")[0].get("system_id")
-
-                url = 'https://eddbapi.kodeblox.com/api/v4/systems?eddbid=' + str(systemid) # get data for system
-                req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                raw_system = urlopen(req).read()
-
-                system = json.loads(raw_system) # parse system data as json and get system name
-                systemname = system.get("docs")[0].get("name")
-
-                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " is at system " + systemname) # send message showing whereabouts of station
+                await ctx.send(":satellite_orbital: Carrier/station " + station + " is at system " + system_name) # send message showing whereabouts of station
 
             except Exception:
-                await ctx.send(":satellite_orbital: Carrier/station " + carriername + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'") # if there are any errors, show this message
+                await ctx.send(":satellite_orbital: Carrier/station " + station + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'") # if there are any errors, show this message
 
 def setup(bot):
     bot.add_cog(MiscCommands(bot))

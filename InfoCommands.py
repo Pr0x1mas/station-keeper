@@ -30,9 +30,9 @@ class InfoCommands(commands.Cog):
                 formatted_pruned_station_data = []
                 
                 for key, value in pruned_station_data.items():
-                    formatted_pruned_station_data.append(str(key).replace('id', 'name').replace('_', ' ') + ': ' + str(value)) # make dictionary look kinda nice and change system id to system name
+                    formatted_pruned_station_data.append(str(key).replace('id', 'name').replace('_', ' ').capitalize() + ': ' + str(value).capitalize()) # make dictionary look kinda nice and change system id to system name
 
-                await ctx.send("**" + name + "** \n \n" + '\n'.join(formatted_pruned_station_data))
+                await ctx.send("**" + name.upper() + "** \n \n" + '\n'.join(formatted_pruned_station_data))
             
             except Exception as E:
                 if str(E) == 'list index out of range':
@@ -60,9 +60,9 @@ class InfoCommands(commands.Cog):
                 formatted_pruned_system_data = []
                 
                 for key, value in pruned_system_data.items():
-                    formatted_pruned_system_data.append(str(key).replace('_', ' ') + ': ' + str(value)) # make dictionary look kinda nice
+                    formatted_pruned_system_data.append(str(key).replace('_', ' ').capitalize + ': ' + str(value).capitalize()) # make dictionary look kinda nice
 
-                await ctx.send("**" + name + "** \n \n" + '\n'.join(formatted_pruned_system_data))
+                await ctx.send("**" + name.upper() + "** \n \n" + '\n'.join(formatted_pruned_system_data))
             
             except Exception as E:
                 if str(E) == 'list index out of range':

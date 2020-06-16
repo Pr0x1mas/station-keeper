@@ -20,12 +20,13 @@ Finds a station or fleet carrier. With fleet carriers, you must use its identifi
 Syntax: `findCarrier <station>`
 
 ### Station
-
 Shows information about a station or carrier. As above, with fleet carriers, you must use its identification code in the format 'xxx-xxx'.
 
 ### System
-
 Shows information about a system.
+
+## Faction
+Shows information about a faction.
 
 ### Want more commands?
 

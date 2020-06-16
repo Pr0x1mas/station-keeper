@@ -60,7 +60,7 @@ class InfoCommands(commands.Cog):
                 formatted_pruned_system_data = []
                 
                 for key, value in pruned_system_data.items():
-                    formatted_pruned_system_data.append(str(key).replace('_', ' ').capitalize + ': ' + str(value).capitalize()) # make dictionary look kinda nice
+                    formatted_pruned_system_data.append(str(key).replace('_', ' ').capitalize() + ': ' + str(value).capitalize()) # make dictionary look kinda nice
 
                 await ctx.send("**" + name.upper() + "** \n \n" + '\n'.join(formatted_pruned_system_data))
             
@@ -71,6 +71,36 @@ class InfoCommands(commands.Cog):
                 else:
                     await ctx.send(str(E) + "\n \n Please contact @Pr0x1mas#0632 if this error persists")
 
+    @commands.command(brief="shows raw info about a faction", description="shows raw info about a faction")
+    async def faction(self, ctx, name):
+        async with ctx.typing():
+            #try:
+            factionname = name.replace(" ", "%20") # convert spaces to %20 for url
+
+            url = 'https://eddbapi.kodeblox.com/api/v4/factions?name=' + factionname # get data for faction
+            req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            raw_faction = urlopen(req).read()
+            faction = json.loads(raw_faction)["docs"] # parse faction data as json
+            pruned_faction = []
+
+            pruned_faction_data = keyFinder.findKeys("faction", name, IDV.faction, "name") # get key values for the keys specified in InfoDataValues.py
+            
+            pruned_faction_data['home_system_id'] = keyFinder.findKey('system', str(pruned_faction_data['home_system_id']), 'name', 'eddbid') # convert system ID value to name
+
+            formatted_pruned_faction_data = []
+            
+            for key, value in pruned_faction_data.items():
+                formatted_pruned_faction_data.append(str(key).replace('id', 'name').replace('_', ' ').capitalize() + ': ' + str(value).capitalize()) # make dictionary look kinda nice
+
+            await ctx.send("**" + name.upper() + "** \n \n" + '\n'.join(formatted_pruned_faction_data))
+            '''
+            except Exception as E:
+                if str(E) == 'list index out of range':
+                    await ctx.send("faction '" + name + "' does not exist.")
+                    
+                else:
+                    await ctx.send(str(E) + "\n \n Please contact @Pr0x1mas#0632 if this error persists")
+            '''
 
 def setup(bot):
     bot.add_cog(InfoCommands(bot))

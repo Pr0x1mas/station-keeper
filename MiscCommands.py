@@ -18,8 +18,8 @@ class MiscCommands(commands.Cog):
 
                 await ctx.send(":satellite_orbital: Carrier/station " + station + " is at system " + system_name) # send message showing whereabouts of station
 
-            except Exception:
-                await ctx.send(":satellite_orbital: Carrier/station " + station + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'") # if there are any errors, show this message
+            except Exception as E:
+                await ctx.send(":satellite_orbital: Carrier/station " + station + " could not be found. Bear in mind that carriers must be identified by their code, in the format 'XXX-XXX'. \n \n Reason: " + str(E)) # if there are any errors, show this message along with said error
 
 def setup(bot):
     bot.add_cog(MiscCommands(bot))

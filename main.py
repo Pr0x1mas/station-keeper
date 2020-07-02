@@ -9,7 +9,7 @@ except Exception:
     print("Unable to load dotenv, reverting to system environment variable") # dotenv is a bitch
 TOKEN = os.getenv("TOKEN")
 
-bot = commands.Bot(command_prefix='?', description='A Discord bot by Pr0x1mas that uses the EDDB API. See https://Pr0x1mas.github.io/station-keeper for more information.')
+bot = commands.Bot(command_prefix='$', description='A Discord bot by Pr0x1mas that uses the EDDB API. See https://Pr0x1mas.github.io/station-keeper for more information.')
 
 bot.load_extension("MiscCommands")
 bot.load_extension("InfoCommands")
